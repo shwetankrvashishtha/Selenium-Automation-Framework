@@ -39,7 +39,7 @@ import utilities.PropertyManager;
  * @author shwetankvashishtha
  *
  */
-public class TestBase extends WebDriverTestBase implements ITestListener, ISuiteListener, IInvokedMethodListener{
+public class TestBase extends WebDriverTestBase implements ITestListener, ISuiteListener, IInvokedMethodListener {
 
 	PropertyManager propertyManager = new PropertyManager();
 
@@ -56,7 +56,8 @@ public class TestBase extends WebDriverTestBase implements ITestListener, ISuite
 			openURL(URL);
 			driver.manage().window().maximize();
 		} else if (browser.equalsIgnoreCase("firefox")) {
-		System.setProperty("webdriver.gecko.driver", propertyManager.getResourceBundle.getProperty("GECKO_DRIVER_PATH"));
+			System.setProperty("webdriver.gecko.driver",
+					propertyManager.getResourceBundle.getProperty("GECKO_DRIVER_PATH"));
 			driver = new FirefoxDriver();
 			openURL(URL);
 			driver.manage().window().maximize();
@@ -66,11 +67,10 @@ public class TestBase extends WebDriverTestBase implements ITestListener, ISuite
 			driver = new ChromeDriver();
 			openURL(URL);
 			driver.manage().window().maximize();
-		}
-		else if (browser.equalsIgnoreCase("phantomjs")) {
+		} else if (browser.equalsIgnoreCase("phantomjs")) {
 			System.setProperty("phantomjs.binary.path",
 					propertyManager.getResourceBundle.getProperty("PHANTOMJS_DRIVER_PATH"));
-			driver = new PhantomJSDriver();	
+			driver = new PhantomJSDriver();
 			openURL(URL);
 			driver.manage().window().maximize();
 		}
@@ -385,6 +385,6 @@ public class TestBase extends WebDriverTestBase implements ITestListener, ISuite
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
