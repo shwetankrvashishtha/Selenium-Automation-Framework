@@ -46,7 +46,7 @@ public class ModuleOneTest extends DataProviders {
 		base.assertTrue(CURRENTURL.contains(CURRENTURL), "TCID_1 PASSED", "Failed");
 	}
 
-	@Test(description = "Verify alt Attribute", priority = 1, dependsOnMethods = "TCID_1")
+	//@Test(description = "Verify alt Attribute", priority = 1, dependsOnMethods = "TCID_1")
 	public void TCID_2() {
 
 		ModuleOnePage moduleOnePage = new ModuleOnePage(base.getdriver());
@@ -55,7 +55,7 @@ public class ModuleOneTest extends DataProviders {
 		base.assertTrue(altAttribut.contains("Day 3 of the Doodle Snow Games!"), "TCID_2 PASSED", "TCID_2 Failed");
 	}
 
-	@Test(description = "login credentials verification", priority = 2, dataProvider = "Authentication")
+	//@Test(description = "login credentials verification", priority = 2, dataProvider = "Authentication")
 	public void TCID_3(String username, String password) {
 
 		ModuleOnePage moduleOnePage = new ModuleOnePage(base.getdriver());

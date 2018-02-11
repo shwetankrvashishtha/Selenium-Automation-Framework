@@ -31,6 +31,7 @@ import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.Parameters;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import utilities.PropertyManager;
 
@@ -63,6 +64,13 @@ public class TestBase extends WebDriverTestBase implements ITestListener, ISuite
 			System.setProperty("webdriver.chrome.driver",
 					propertyManager.getResourceBundle.getProperty("CHROME_DRIVER_PATH"));
 			driver = new ChromeDriver();
+			openURL(URL);
+			driver.manage().window().maximize();
+		}
+		else if (browser.equalsIgnoreCase("phantomjs")) {
+			System.setProperty("phantomjs.binary.path",
+					propertyManager.getResourceBundle.getProperty("PHANTOMJS_DRIVER_PATH"));
+			driver = new PhantomJSDriver();	
 			openURL(URL);
 			driver.manage().window().maximize();
 		}
