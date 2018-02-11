@@ -40,16 +40,16 @@ public class ModuleOneTest extends DataProviders {
 		new ModuleOnePage(base.getdriver());
 
 		String CURRENTURL = base.getdriver().getCurrentUrl();
-		base.assertTrue(CURRENTURL.contains(CURRENTURL), "TCID_1 PASSED", "");
+		base.assertTrue(CURRENTURL.contains(CURRENTURL), "TCID_1 PASSED", "Failed");
 	}
 
-	@Test(description = "Verify alt Attribute", priority = 1, dependsOnMethods = "TCID_1")
+	@Test(description = "Verify alt Attribute", priority = 1, dependsOnMethods = "TCID_2 TCID_1")
 	public void TCID_2() {
 
 		ModuleOnePage moduleOnePage = new ModuleOnePage(base.getdriver());
 
 		String altAttribut = moduleOnePage.getGoogleImg().getAttribute("alt");
-		base.assertTrue(altAttribut.contains("Google"), "TCID_2 PASSED", "");
+		base.assertTrue(altAttribut.contains("Google"), "TCID_2 PASSED", "TCID_2 Failed");
 	}
 
 	@Test(description = "login credentials verification", priority = 2, dataProvider = "Authentication")
