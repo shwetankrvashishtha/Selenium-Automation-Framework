@@ -1,22 +1,23 @@
 package tests;
 
-import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import functionalLib.TestBase;
 import pages.ModuleOnePage;
 import utilities.DataProviders;
 import utilities.PropertyManager;
 
+@Listeners(functionalLib.TestBase.class)
+
 public class ModuleOneTest extends DataProviders {
 
 	PropertyManager propertyManager = new PropertyManager();
 	TestBase base = new TestBase();
-
+	
 	@BeforeClass
 	public void openTest() {
 		base.setupBrowser(propertyManager.getResourceBundle.getProperty("BROWSER"),
@@ -39,7 +40,7 @@ public class ModuleOneTest extends DataProviders {
 		new ModuleOnePage(base.getdriver());
 
 		String CURRENTURL = base.getdriver().getCurrentUrl();
-		Assert.assertTrue(CURRENTURL.contains(CURRENTURL), "TCID_1 PASSED");
+		base.assertTrue(CURRENTURL.contains(CURRENTURL), "TCID_1 PASSED", "");
 	}
 
 	@Test(description = "Verify alt Attribute", priority = 1, dependsOnMethods = "TCID_1")
@@ -48,7 +49,7 @@ public class ModuleOneTest extends DataProviders {
 		ModuleOnePage moduleOnePage = new ModuleOnePage(base.getdriver());
 
 		String altAttribut = moduleOnePage.getGoogleImg().getAttribute("alt");
-		Assert.assertTrue(altAttribut.contains("Google"), "TCID_2 PASSED");
+		base.assertTrue(altAttribut.contains("Google"), "TCID_2 PASSED", "");
 	}
 
 	@Test(description = "login credentials verification", priority = 2, dataProvider = "Authentication")

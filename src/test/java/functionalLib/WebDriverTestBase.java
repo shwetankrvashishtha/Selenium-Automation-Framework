@@ -2,6 +2,10 @@ package functionalLib;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.IInvokedMethod;
+import org.testng.ISuite;
+import org.testng.ITestContext;
+import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 
 /**
@@ -76,4 +80,27 @@ public abstract class WebDriverTestBase {
 
 	public abstract void teardownTest();
 
+	public abstract void onStart(ISuite arg0);
+
+	public abstract void onFinish(ISuite arg0);
+
+	public abstract void onStart(ITestContext arg0);
+
+	public abstract void onFinish(ITestContext arg0);
+
+	public abstract String returnMethodName(ITestNGMethod method);
+
+	public abstract void afterInvocation(IInvokedMethod arg0, ITestResult arg1);
+
+	public abstract void beforeInvocation(IInvokedMethod arg0, ITestResult arg1);
+
+	public abstract void printTestResults(ITestResult result);
+
+	public abstract void onTestSkipped(ITestResult arg0);
+
+	public abstract void onTestStart(ITestResult arg0);
+
+	public abstract void onTestFailure(ITestResult arg0);
+
+	public abstract void onTestSuccess(ITestResult arg0);
 }
