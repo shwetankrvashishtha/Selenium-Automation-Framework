@@ -30,6 +30,8 @@ import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.Parameters;
+
 import utilities.PropertyManager;
 
 /**
@@ -53,8 +55,7 @@ public class TestBase extends WebDriverTestBase implements ITestListener, ISuite
 			openURL(URL);
 			driver.manage().window().maximize();
 		} else if (browser.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver",
-					propertyManager.getResourceBundle.getProperty("GECKO_DRIVER_PATH"));
+		System.setProperty("webdriver.gecko.driver", propertyManager.getResourceBundle.getProperty("GECKO_DRIVER_PATH"));
 			driver = new FirefoxDriver();
 			openURL(URL);
 			driver.manage().window().maximize();

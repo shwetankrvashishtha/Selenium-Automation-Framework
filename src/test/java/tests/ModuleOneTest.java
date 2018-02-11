@@ -3,7 +3,9 @@ package tests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import functionalLib.TestBase;
@@ -18,9 +20,10 @@ public class ModuleOneTest extends DataProviders {
 	PropertyManager propertyManager = new PropertyManager();
 	TestBase base = new TestBase();
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void openTest() {
-		base.setupBrowser(propertyManager.getResourceBundle.getProperty("BROWSER"),
+	public void openTest(String browser) {
+		base.setupBrowser(browser,
 				propertyManager.getResourceBundle.getProperty("BASE_URL"));
 	}
 
@@ -35,7 +38,7 @@ public class ModuleOneTest extends DataProviders {
 	}
 
 	@Test(description = "Verify Current URL", priority = 0)
-	public void TCID_1() {
+	public void TCID_1() throws InterruptedException {
 
 		new ModuleOnePage(base.getdriver());
 
@@ -43,13 +46,13 @@ public class ModuleOneTest extends DataProviders {
 		base.assertTrue(CURRENTURL.contains(CURRENTURL), "TCID_1 PASSED", "Failed");
 	}
 
-	@Test(description = "Verify alt Attribute", priority = 1, dependsOnMethods = "TCID_2 TCID_1")
+	@Test(description = "Verify alt Attribute", priority = 1, dependsOnMethods = "TCID_1")
 	public void TCID_2() {
 
 		ModuleOnePage moduleOnePage = new ModuleOnePage(base.getdriver());
 
 		String altAttribut = moduleOnePage.getGoogleImg().getAttribute("alt");
-		base.assertTrue(altAttribut.contains("Google"), "TCID_2 PASSED", "TCID_2 Failed");
+		base.assertTrue(altAttribut.contains("Day 3 of the Doodle Snow Games!"), "TCID_2 PASSED", "TCID_2 Failed");
 	}
 
 	@Test(description = "login credentials verification", priority = 2, dataProvider = "Authentication")
