@@ -11,3 +11,4 @@ To be implemented:
 4. Apache POI
 5. Apache Gradle
 6. BDD interface
+7. Update pom.xml with http://doc.fortysix.ch/maven/maven-postman-plugin/
