@@ -30,7 +30,6 @@ import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.annotations.Parameters;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import utilities.PropertyManager;

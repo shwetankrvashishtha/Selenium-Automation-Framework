@@ -2,13 +2,8 @@ package tests;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Parameters;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import functionalLib.TestBase;
@@ -23,10 +18,9 @@ public class ModuleOneTest extends DataProviders {
 	PropertyManager propertyManager = new PropertyManager();
 	TestBase base = new TestBase();
 	
-	@Parameters("browser")
 	@BeforeClass
-	public void openTest(String browser) {
-		base.setupBrowser(browser,
+	public void openTest() {
+		base.setupBrowser(propertyManager.getResourceBundle.getProperty("BROWSER"),
 				propertyManager.getResourceBundle.getProperty("BASE_URL"));
 	}
 
@@ -40,7 +34,7 @@ public class ModuleOneTest extends DataProviders {
 		base.teardownTest();
 	}
 
-	@Test(description = "Verify Current URL", priority = 0)
+	//@Test(description = "Verify Current URL", priority = 0)
 	public void TCID_1() throws InterruptedException {
 
 		new ModuleOnePage(base.getdriver());
