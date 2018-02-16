@@ -1,7 +1,7 @@
 # Note:
 Project is developed for Mac OS X. You might need to make few changes to execute on any other OS.
 
-<b>Selenium-Automation-Framework
+<b>Selenium-Automation-Framework</b>
 
 To be implemented:
 
