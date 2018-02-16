@@ -1,4 +1,5 @@
-# Note: Project is developed for Mac OS X. You might need to make few changes to execute on any other OS.
+# Note:
+Project is developed for Mac OS X. You might need to make few changes to execute on any other OS.
 
 # Selenium-Automation-Framework
 
