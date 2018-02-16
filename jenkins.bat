@@ -1,4 +1,4 @@
 timeout 3
+start chrome http://localhost:8080/
 java -jar jenkins.war
-timeout 120
-start chrome localhost:8080
+
