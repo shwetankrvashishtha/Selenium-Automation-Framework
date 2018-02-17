@@ -386,4 +386,6 @@ public class TestBase extends WebDriverTestBase implements ITestListener, ISuite
 		// TODO Auto-generated method stub
 
 	}
+	
+	//ITestResult(on test passed, skipped and failure), ITestNGMethod(return method name), ISuite(on test start and finish)
 }
