@@ -3,6 +3,15 @@ Project is developed for Mac OS X. You might need to make few changes to execute
 
 <b>Selenium-Automation-Framework</b>
 
+Implemented:
+1. Selenium web driver
+2. TestNG
+3. Maven
+4. Page Object Model with Page Factory
+5. ReportNG
+6. Data Providers
+7. Javadocs
+
 To be implemented:
 
 1. Defect management tool integration
