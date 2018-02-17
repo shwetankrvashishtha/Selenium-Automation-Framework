@@ -11,6 +11,7 @@ Implemented:
 5. ReportNG
 6. Data Providers
 7. Javadocs
+8. Email test results automatically
 
 To be implemented:
 
