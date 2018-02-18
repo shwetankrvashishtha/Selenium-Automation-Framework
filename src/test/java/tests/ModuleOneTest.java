@@ -34,7 +34,7 @@ public class ModuleOneTest extends DataProviders {
 		base.teardownTest();
 	}
 
-	//@Test(description = "Verify Current URL", priority = 0)
+	@Test(description = "Verify Current URL", priority = 0)
 	public void TCID_1() throws InterruptedException {
 
 		new ModuleOnePage(base.getdriver());
